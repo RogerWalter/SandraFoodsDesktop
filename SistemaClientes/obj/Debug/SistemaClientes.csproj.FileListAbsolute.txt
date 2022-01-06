@@ -1,0 +1,289 @@
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SistemaClientes.exe.config
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SistemaClientes.exe
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SistemaClientes.pdb
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Cliente.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Pedido.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Principal.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Produtos.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Properties.Resources.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Taxa.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.csproj.GenerateResource.cache
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.csproj.CopyComplete
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.exe
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.pdb
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.TelaConfirmado.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Adicionar.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WebDesign.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\EnvDTE.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\stdole.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.MSXML.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\RdlCompile.cache
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\RdlCompile.compiled
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoBalcao.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoEntrega.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultaItem.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultarTaxa.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultarCliente.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultarPedido.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Relatorio.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Lancamento.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.FiltroRelatorio.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.TelaSenha.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.VisualizarPedido.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Motoboy.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultaMotoboy.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoFechamento.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Pedido_Add_Cliente.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Impressora.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ImpressoraImprimir.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.PedidoAvulso.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConsultarSenha.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.SenhasPainel.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.SenhasPrincipal.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoBalcaoSenha.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.RelatorioImpresso.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SistemaClientes.exe.config
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SistemaClientes.exe
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\SistemaClientes.pdb
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WebDesign.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\EnvDTE.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\stdole.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\Microsoft.MSXML.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Adicionar.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Cliente.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultaItem.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultaMotoboy.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultarCliente.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultarPedido.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultarSenha.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ConsultarTaxa.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.FiltroRelatorio.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoBalcao.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoBalcaoSenha.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoEntrega.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ImpressaoFechamento.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Impressora.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.ImpressoraImprimir.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Lancamento.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Motoboy.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Pedido_Add_Cliente.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Pedido.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.PedidoAvulso.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Principal.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Produtos.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Properties.Resources.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Relatorio.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.RelatorioImpresso.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.SenhasPainel.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.SenhasPrincipal.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.Taxa.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.TelaConfirmado.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.TelaSenha.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.VisualizarPedido.resources
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.csproj.GenerateResource.cache
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\RdlCompile.cache
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\RdlCompile.compiled
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.csproj.CopyComplete
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.exe
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.pdb
+C:\Users\roger\source\repos\SistemaClientes - Alemão\SistemaClientes\obj\Debug\SistemaClientes.csprojAssemblyReference.cache
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Configuracoes.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.csproj.CoreCompileInputs.cache
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\FireSharp.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\LiteDB.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Reactive.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\LiteDB.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Newtonsoft.Json.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Reactive.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.csproj.App.config
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.MonitorAplicativo.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.TelaCarregamento.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.CupomDeDesconto.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.SelecionarClienteParaPedido.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.ConverterPedido.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.csprojAssemblyReference.cache
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Firebase.Storage.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.AdicionarAvisoApp.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\Firebase.Auth.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\EntityFramework.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\GMap.NET.Core.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SqlClient.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SQLite.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\EntityFramework.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SqlClient.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SQLite.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.PosicaoMotoboy.resources

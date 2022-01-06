@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaClientes", "SistemaClientes\SistemaClientes.csproj", "{45C07E15-C14F-44A9-AC7A-D469EE656A5B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Crepe_da_Sandra", "Crepe_da_Sandra\Crepe_da_Sandra.vdproj", "{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Sandra Foods Setup", "Sandra Foods Setup\Sandra Foods Setup.vdproj", "{53ABD62B-883E-4599-97B3-832F3AC44FD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.All|Any CPU.Build.0 = Release|Any CPU
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C07E15-C14F-44A9-AC7A-D469EE656A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}.All|Any CPU.ActiveCfg = Release
+		{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}.All|Any CPU.Build.0 = Release
+		{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}.Debug|Any CPU.ActiveCfg = Debug
+		{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}.Debug|Any CPU.Build.0 = Debug
+		{FEA7A2EE-496B-4741-9DC5-5DDC455590E0}.Release|Any CPU.ActiveCfg = Release
+		{53ABD62B-883E-4599-97B3-832F3AC44FD7}.All|Any CPU.ActiveCfg = Release
+		{53ABD62B-883E-4599-97B3-832F3AC44FD7}.All|Any CPU.Build.0 = Release
+		{53ABD62B-883E-4599-97B3-832F3AC44FD7}.Debug|Any CPU.ActiveCfg = Debug
+		{53ABD62B-883E-4599-97B3-832F3AC44FD7}.Debug|Any CPU.Build.0 = Debug
+		{53ABD62B-883E-4599-97B3-832F3AC44FD7}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6FCA4B6-632E-4862-B4CB-E56196D210C2}
+	EndGlobalSection
+EndGlobal
