@@ -359,6 +359,11 @@ namespace SistemaClientes
             PosicaoMotoboy nova = new PosicaoMotoboy();
             nova.ShowDialog();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
         /*public void baixarTodoCardapio()
 {
 listaCardapio.Clear();

@@ -89,7 +89,6 @@ namespace SistemaClientes
                 }
                 else
                 {
-
                     tbCodigo.Text = busca.Id.ToString();
                     idClienteNoPedido = busca.Id_Cliente;
                     if(busca.Id_Cliente == 0)
@@ -516,6 +515,7 @@ namespace SistemaClientes
             tbNum.Text = buscado.Numero;
             tbBairro.Text = buscado.Bairro.Trim();
             tbReferencia.Text = buscado.Referencia.Trim();
+            verificaTaxa(buscado.Bairro);
         }
 
         public Decimal valorTaxa = 0;
@@ -907,7 +907,7 @@ namespace SistemaClientes
                 }
                 else
                 {
-                    if (metPag == 0)
+                    if (metPag == -1)
                     {
                         MessageBox.Show("Não foi informado um método de pagamento.", "Erro");
                         return;
@@ -1013,6 +1013,12 @@ namespace SistemaClientes
                                 novaEnt.Pedido = novo.Id;
                                 novaEnt.Senha = novo.Senha;
                                 novaEnt.Cliente = tbCliente.Text.ToString();
+                                /*if (metPag == 0)
+                                    novaEnt.Cliente = "DINHEIRO";
+                                if (metPag == 1)
+                                    novaEnt.Cliente = "CARTAO";
+                                if (metPag == 2)
+                                    novaEnt.Cliente = "PIX";*/
                                 novaEnt.Total = total;
                                 novaEnt.Data = data;
                                 novaEnt.Pagamento = metPag;
@@ -1279,7 +1285,7 @@ namespace SistemaClientes
         {
             if (rbDin.Checked == true)
             {
-                metPag = 1;
+                metPag = 0;
             }
         }
 
@@ -1287,14 +1293,14 @@ namespace SistemaClientes
         {
             if (rbCart.Checked == true)
             {
-                metPag = 2;
+                metPag = 1;
             }
         }
         private void rbPix_CheckedChanged(object sender, EventArgs e)
         {
             if (rbPix.Checked == true)
             {
-                metPag = 3;
+                metPag = 2;
             }
         }
         private void Pedido_FormClosing(object sender, FormClosingEventArgs e)
@@ -1419,6 +1425,7 @@ namespace SistemaClientes
             AcessoFB.insereDadosImpressao(senha, data, hora, cliente, celular, rua, numero, bairro, referencia, taxa, total, obs, desc, pagamento);
             AcessoFB.insereItensImpressao(idParaImpressao);
 
+            
             //VERIFICA SE O PEDIDO POSSUI PASTEL
             if (AcessoFB.fb_verificaPastelPedido(idParaImpressao) == 1)
             {
@@ -1441,9 +1448,9 @@ namespace SistemaClientes
                             {
                                 ImpressoraImprimir nova = new ImpressoraImprimir();
                                 if (item.Obs.Trim() == "" || item.Obs == null) //NÃO POSSUI OBS/ADD
-                                    nova.recebeTextos("------------------", item.Nome.Trim(), "------------------");
+                                    nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim(), "------------------");
                                 else
-                                    nova.recebeTextos("------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
+                                    nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
                                 nova.ShowDialog();
                             }
                         }
@@ -1451,9 +1458,9 @@ namespace SistemaClientes
                         {
                             ImpressoraImprimir nova = new ImpressoraImprimir();
                             if (item.Obs.Trim() == "" || item.Obs == null) //NÃO POSSUI OBS/ADD
-                                nova.recebeTextos("------------------", item.Nome.Trim(), "------------------");
+                                nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim(), "------------------");
                             else
-                                nova.recebeTextos("------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
+                                nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
                             nova.ShowDialog();
                         }
                     }
@@ -1903,6 +1910,11 @@ namespace SistemaClientes
         private void tbCliente_Enter(object sender, EventArgs e)
         {
             parametroTbCliente = 0;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         /*public void deletaPdf()

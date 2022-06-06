@@ -1944,6 +1944,182 @@ namespace SistemaClientes
                 }
             }
         }
+        public static int fb_verificaGrupoItemComanda(String nome)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select GRUPO from PRODUTO where DESCRICAO = '" + nome.Trim() + "'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    int grupo = 0;
+                    while (dr.Read())
+                    {
+                        grupo = Convert.ToInt32(dr[0]);
+
+                    }
+                    return grupo;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static Decimal fb_verificaParcialComanda(String id_chave)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select TOTAL from COMANDA where ID_CHAVE = '" + id_chave + "' AND TIPO_FECHAMENTO = 0";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    Decimal total = 0;
+                    while (dr.Read())
+                    {
+                        total = Convert.ToDecimal(dr[0]);
+
+                    }
+                    return total;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static void fb_adicionaNovaComanda(Comanda novo)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    String addValor;
+                    if (novo.total.ToString().Contains(","))
+                    {
+                        addValor = novo.total.ToString().Replace(",", ".");
+                    }
+                    else
+                    {
+                        addValor = novo.total.ToString();
+                    }
+                    conexaoFireBird.Open();
+                    string mSQL = "insert into COMANDA (ID, ID_CHAVE, DATA, MESA, TOTAL, PAGAMENTO, TIPO_FECHAMENTO) values ("+ fb_verificaUltIdComanda() + ",'" + novo.id + "', '" + novo.data + "', " + novo.mesa + ", " + addValor + ", " + novo.pagamento + ", " + novo.fechamento + ")";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (FbException fbex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao adicionar um novo pedido vindo do aplicativo.\nFunção: fb_adicionaNovoPedido()\n\nErro:\n\n" + fbex.ToString(), "Erro");
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static void fb_adicionaItemComanda(ItemComanda inserir)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    String addValor;
+                    if (inserir.valor.ToString().Contains(","))
+                    {
+                        addValor = inserir.valor.ToString().Replace(",", ".");
+                    }
+                    else
+                    {
+                        addValor = inserir.valor.ToString();
+                    }
+                    string mSQL1 = "insert into ITEM_COMANDA (ID, ID_CHAVE, MESA, DATA, NOME, VALOR, QTD, GRUPO) values ("+ fb_verificaUltIdItemComanda() + ",'" + inserir.id + "', " + inserir.mesa + ", '" + inserir.data + "', '" + inserir.nome + "', " + addValor + ", " + inserir.qtd + ", " + inserir.grupo + ")";
+                    FbCommand cmd1 = new FbCommand(mSQL1, conexaoFireBird);
+                    cmd1.ExecuteNonQuery();
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+
+        public static int fb_verificaUltIdComanda()
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select ID from COMANDA where ID = (select max(ID) from COMANDA)";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    int ultId = new int();
+                    while (dr.Read())
+                    {
+                        ultId = Convert.ToInt32(dr[0]);
+
+                    }
+                    return ultId + 1;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static int fb_verificaUltIdItemComanda()
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select ID from ITEM_COMANDA where ID = (select max(ID) from ITEM_COMANDA)";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    int ultId = new int();
+                    while (dr.Read())
+                    {
+                        ultId = Convert.ToInt32(dr[0]);
+
+                    }
+                    return ultId + 1;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
 
         public static void fb_adicionaItemPedido(int cod)
         {
@@ -2143,6 +2319,53 @@ namespace SistemaClientes
             }
         }
 
+        public static int fb_verificaPastelPedidoAplicativo(int cod)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "Select ID, PRODUTO, OBS, VALOR, QUANTIDADE from ITEM_PEDIDO where ID_PEDIDO = " + cod + "ORDER BY PRODUTO";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    Itens_Pedido resultado = new Itens_Pedido();
+                    int parametro = 0;
+                    resultado.Id = -1;
+                    int cont = 0;
+                    while (dr.Read())
+                    {
+                        resultado.Id = Convert.ToInt32(dr[0]);
+                        resultado.Nome = Convert.ToString(dr[1]);
+                        resultado.Obs = Convert.ToString(dr[2]);
+                        resultado.Valor = Convert.ToDecimal(dr[3]);
+                        resultado.Quantidade = Convert.ToInt32(dr[4]);
+
+                        if (resultado.Nome.Contains("PASTEL"))
+                        {
+                            cont++;
+                            if (cont > 1)
+                            {
+                                parametro = 1;
+                                return 1;
+                            }
+                        }
+
+                    }
+                    return parametro;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+
         public static int fb_verificaPastelPedido(int cod)
         {
             using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
@@ -2197,6 +2420,42 @@ namespace SistemaClientes
                 {
                     conexaoFireBird.Open();
                     string mSQL = "Select ID_TEMP, PRODUTO, OBS, VALOR, QUANTIDADE from ITEM_PEDIDO_TEMP where ID_PEDIDO = " + cod + "ORDER BY PRODUTO";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Itens_Pedido> lista = new List<Itens_Pedido>();
+                    while (dr.Read())
+                    {
+                        Itens_Pedido resultado = new Itens_Pedido();
+                        resultado.Id = Convert.ToInt32(dr[0]);
+                        resultado.Nome = Convert.ToString(dr[1]);
+                        resultado.Obs = Convert.ToString(dr[2]);
+                        resultado.Valor = Convert.ToDecimal(dr[3]);
+                        resultado.Quantidade = Convert.ToInt32(dr[4]);
+
+                        if (resultado.Nome.Contains("PASTEL"))
+                            lista.Add(resultado);
+                    }
+                    return lista;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<Itens_Pedido> recuperaPasteisInseridosAplicativo(int cod)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "Select ID, PRODUTO, OBS, VALOR, QUANTIDADE from ITEM_PEDIDO where ID_PEDIDO = " + cod + "ORDER BY PRODUTO";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     List<Itens_Pedido> lista = new List<Itens_Pedido>();
@@ -4549,7 +4808,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select VALOR from LANCAMENTO where DATA like '" + data + "%' AND PAGAMENTO = 3";
+                    string mSQL = "select VALOR from LANCAMENTO where DATA like '" + data + "%' AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     Decimal total = 0;
@@ -4580,7 +4839,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select VALOR from LANCAMENTO where DATA like '%" + mes + "%' AND PAGAMENTO = 3";
+                    string mSQL = "select VALOR from LANCAMENTO where DATA like '%" + mes + "%' AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     Decimal total = 0;
@@ -4611,7 +4870,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select VALOR from LANCAMENTO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini.Replace("/", ".") + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fin.Replace("/", ".") + "') AND PAGAMENTO = 3";
+                    string mSQL = "select VALOR from LANCAMENTO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini.Replace("/", ".") + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fin.Replace("/", ".") + "') AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     Decimal total = 0;
@@ -4827,7 +5086,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select ID from LANCAMENTO where DATA like '" + data + "%' AND PAGAMENTO = 3";
+                    string mSQL = "select ID from LANCAMENTO where DATA like '" + data + "%' AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     int resultado = 0;
@@ -4859,7 +5118,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select ID from LANCAMENTO where DATA like '%" + mes + "%' AND PAGAMENTO = 3";
+                    string mSQL = "select ID from LANCAMENTO where DATA like '%" + mes + "%' AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     int resultado = 0;
@@ -4891,7 +5150,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select ID from LANCAMENTO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini.Replace("/", ".") + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fin.Replace("/", ".") + "') AND PAGAMENTO = 3";
+                    string mSQL = "select ID from LANCAMENTO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini.Replace("/", ".") + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fin.Replace("/", ".") + "') AND PAGAMENTO = 2";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     int resultado = 0;
@@ -5073,7 +5332,469 @@ namespace SistemaClientes
                 }
             }
         }
+        public static List<Itens_Pedido_Relatorio> fb_recuperaListaItemPedido(List<int> listaPedidos)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "Select * from ITEM_PEDIDO where ID_PEDIDO >= " + listaPedidos[0] + " AND ID_PEDIDO <= " + listaPedidos[listaPedidos.Count - 1] ;
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    Itens_Pedido_Relatorio resultado = new Itens_Pedido_Relatorio();
+                    List<Itens_Pedido_Relatorio> retorno = new List<Itens_Pedido_Relatorio>();
+                    while (dr.Read())
+                    {
+                        resultado.Id = Convert.ToInt32(dr[0]);
+                        resultado.Id_Pedido = Convert.ToInt32(dr[1]);
+                        resultado.Nome = Convert.ToString(dr[2]);
+                        resultado.Obs = Convert.ToString(dr[3]);
+                        resultado.Valor = Convert.ToDecimal(dr[4]);
+                        resultado.Quantidade = Convert.ToInt32(dr[5]);
+                        resultado.Grupo = fb_verificaGrupoItemComanda(resultado.Nome);
 
+                        retorno.Add(resultado);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<int> fb_recuperaListaPedidos(String data)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select ID from PEDIDO where DATA like '" + data + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<int> retorno = new List<int>();
+                    int id_adc = 0;
+                    while (dr.Read())
+                    {
+                        id_adc = Convert.ToInt32(dr[0]);
+                        retorno.Add(id_adc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<int> fb_recuperaListaPedidosMes(String mes)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select ID from PEDIDO where DATA like '%" + mes + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<int> retorno = new List<int>();
+                    int id_adc = 0;
+                    while (dr.Read())
+                    {
+                        id_adc = Convert.ToInt32(dr[0]);
+                        retorno.Add(id_adc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<int> fb_recuperaListaPedidosPeriodo(String ini, String fim)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select ID from PEDIDO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<int> retorno = new List<int>();
+                    int id_adc = 0;
+                    while (dr.Read())
+                    {
+                        id_adc = Convert.ToInt32(dr[0]);
+                        retorno.Add(id_adc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<Lancamentos> fb_recuperaListaLancamentos(String data)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from LANCAMENTO where DATA like '" + data + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Lancamentos> retorno = new List<Lancamentos>();
+                    while (dr.Read())
+                    {
+                        Lancamentos novoLanc = new Lancamentos();
+                        novoLanc.Id = Convert.ToInt32(dr[0]);
+                        novoLanc.Data = dr[1].ToString().Trim();
+                        novoLanc.Valor = Convert.ToDecimal(dr[2]);
+                        novoLanc.Pagamento = Convert.ToInt32(dr[3]);
+                        novoLanc.Tipo = Convert.ToInt32(dr[4]);
+                        novoLanc.Pedido = Convert.ToInt32(dr[5]);
+
+                        retorno.Add(novoLanc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<Lancamentos> fb_recuperaListaLancamentosMes(String mes)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from LANCAMENTO where DATA like '%" + mes + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Lancamentos> retorno = new List<Lancamentos>();
+                    while (dr.Read())
+                    {
+                        Lancamentos novoLanc = new Lancamentos();
+                        novoLanc.Id = Convert.ToInt32(dr[0]);
+                        novoLanc.Data = dr[1].ToString().Trim();
+                        novoLanc.Valor = Convert.ToDecimal(dr[2]);
+                        novoLanc.Pagamento = Convert.ToInt32(dr[3]);
+                        novoLanc.Tipo = Convert.ToInt32(dr[4]);
+                        novoLanc.Pedido = Convert.ToInt32(dr[5]);
+
+                        retorno.Add(novoLanc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<Lancamentos> fb_recuperaListaLancamentosPeriodo(String ini, String fim)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from LANCAMENTO where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Lancamentos> retorno = new List<Lancamentos>();
+                    while (dr.Read())
+                    {
+                        Lancamentos novoLanc = new Lancamentos();
+                        novoLanc.Id = Convert.ToInt32(dr[0]);
+                        novoLanc.Data = dr[1].ToString().Trim();
+                        novoLanc.Valor = Convert.ToDecimal(dr[2]);
+                        novoLanc.Pagamento = Convert.ToInt32(dr[3]);
+                        novoLanc.Tipo = Convert.ToInt32(dr[4]);
+                        novoLanc.Pedido = Convert.ToInt32(dr[5]);
+
+                        retorno.Add(novoLanc);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        /*public static List<Comanda> fb_recuperaListaComandas(String data)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from COMANDA where DATA like '" + data + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Comanda> retorno = new List<Comanda>();
+                    while (dr.Read())
+                    {
+                        Comanda ins = new Comanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.data = dr[2].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[3]);
+                        ins.total = Convert.ToDecimal(dr[4]);
+                        ins.pagamento = Convert.ToInt32(dr[5]);
+                        ins.fechamento = Convert.ToInt32(dr[6]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }*/
+        public static List<Comanda> fb_recuperaListaComandasMes(String mes)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from COMANDA where DATA like '%" + mes + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Comanda> retorno = new List<Comanda>();
+                    while (dr.Read())
+                    {
+                        Comanda ins = new Comanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.data = dr[2].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[3]);
+                        ins.total = Convert.ToDecimal(dr[4]);
+                        ins.pagamento = Convert.ToInt32(dr[5]);
+                        ins.fechamento = Convert.ToInt32(dr[6]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static List<Comanda> fb_recuperaListaComandasPeriodo(String ini, String fim)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from COMANDA where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Comanda> retorno = new List<Comanda>();
+                    while (dr.Read())
+                    {
+                        Comanda ins = new Comanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.data = dr[2].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[3]);
+                        ins.total = Convert.ToDecimal(dr[4]);
+                        ins.pagamento = Convert.ToInt32(dr[5]);
+                        ins.fechamento = Convert.ToInt32(dr[6]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<ItemComanda> fb_recuperaListaItemComandas(String data)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from ITEM_COMANDA where DATA like '" + data + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<ItemComanda> retorno = new List<ItemComanda>();
+                    while (dr.Read())
+                    {
+                        ItemComanda ins = new ItemComanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[2]);
+                        ins.data = dr[3].ToString().Trim();
+                        ins.nome = dr[4].ToString().Trim();
+                        ins.valor = Convert.ToDecimal(dr[5]);
+                        ins.qtd = Convert.ToInt32(dr[6]);
+                        ins.grupo = Convert.ToInt32(dr[7]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<ItemComanda> fb_recuperaListaItemComandasMes(String mes)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from ITEM_COMANDA where DATA like '%" + mes + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<ItemComanda> retorno = new List<ItemComanda>();
+                    while (dr.Read())
+                    {
+                        ItemComanda ins = new ItemComanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[2]);
+                        ins.data = dr[3].ToString().Trim();
+                        ins.nome = dr[4].ToString().Trim();
+                        ins.valor = Convert.ToDecimal(dr[5]);
+                        ins.qtd = Convert.ToInt32(dr[6]);
+                        ins.grupo = Convert.ToInt32(dr[7]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<ItemComanda> fb_recuperaListaItemComandasPeriodo(String ini, String fim)
+        {
+
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "select * from ITEM_COMANDA where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<ItemComanda> retorno = new List<ItemComanda>();
+                    while (dr.Read())
+                    {
+                        ItemComanda ins = new ItemComanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        ins.id = dr[1].ToString().Trim();
+                        ins.mesa = Convert.ToInt32(dr[2]);
+                        ins.data = dr[3].ToString().Trim();
+                        ins.nome = dr[4].ToString().Trim();
+                        ins.valor = Convert.ToDecimal(dr[5]);
+                        ins.qtd = Convert.ToInt32(dr[6]);
+                        ins.grupo = Convert.ToInt32(dr[7]);
+
+                        retorno.Add(ins);
+                    }
+                    return retorno;
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
 
         //###############################################MOTOBOYS##################################################
 
@@ -6303,7 +7024,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select senha, cliente, total, taxa from entrega where data like '" + data + "%' and id_pedido = 0";
+                    string mSQL = "select senha, cliente, total, taxa from entrega where data like '" + data + "%' and id_pedido = 0 and senha != 0";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     int resultado = 0;
@@ -7755,13 +8476,15 @@ namespace SistemaClientes
 
 
                     conexaoFireBird.Open();
-                    string mSQL = "Select * from PRODUTO";
+                    string mSQL = "Select * from PRODUTO order by GRUPO ASC, TIPO ASC";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
+                    int identificadorFB = 0;
                     while (dr.Read())
                     {
+                        identificadorFB++;
                         Itens_Firebase inserir = new Itens_Firebase();
-                        inserir.id = Convert.ToInt32(dr[0]);
+                        inserir.id = identificadorFB;
                         inserir.nome = dr[1].ToString().Trim();
                         inserir.valor = Convert.ToDecimal(dr[2]);
                         inserir.descricao = dr[3].ToString().Trim();
@@ -7776,6 +8499,48 @@ namespace SistemaClientes
                             var set = client.Set(@"cardapio/" + chaveOndeAdicionar, inserir);
                         }
                 
+                    }
+                }
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+        public static void sincronizaCardapioFirebirdComGarcom(IFirebaseConfig config, IFirebaseClient client)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    var delete = client.Delete(@"itens/");
+
+
+                    conexaoFireBird.Open();
+                    string mSQL = "Select * from PRODUTO order by GRUPO ASC, TIPO ASC";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    int identificadorFB = 0;
+                    while (dr.Read())
+                    {
+                        identificadorFB++;
+                        Itens_Firebase inserir = new Itens_Firebase();
+                        inserir.id = identificadorFB;
+                        inserir.nome = dr[1].ToString().Trim();
+                        inserir.valor = Convert.ToDecimal(dr[2]);
+                        inserir.descricao = dr[3].ToString().Trim();
+                        inserir.tipo = Convert.ToInt32(dr[4]);
+                        inserir.grupo = Convert.ToInt32(dr[5]);
+
+                        int parametroApp = Convert.ToInt32(dr[6]);
+
+                        String chaveOndeAdicionar = inserir.id.ToString().PadLeft(5, '0');
+                        var set = client.Set(@"itens/" + chaveOndeAdicionar, inserir);
+
                     }
                 }
                 catch (FbException fbex)
@@ -7845,6 +8610,85 @@ namespace SistemaClientes
                         retorno.Data = dr[6].ToString();
                         retorno.Status = Convert.ToInt32(dr[7]);
                         retorno.Senha = Convert.ToInt32(dr[8]);
+
+                        resultado.Add(retorno);
+                    }
+                    return resultado;
+                }
+                catch (FbException fbex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao recuperar a lista de pedidos do monitor de pedidos.\nFunção: fb_recuperaListaPedidosMonitor()\n\nErro:\n\n" + fbex.ToString(), "Erro");
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<Comanda> fb_recuperaListaComandas(String data)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "Select * from COMANDA where data like '"+ data.Replace("/","-") +"%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Comanda> resultado = new List<Comanda>();
+                    while (dr.Read())
+                    {
+                        Comanda retorno = new Comanda();
+                        int id = Convert.ToInt32(dr[0]);
+                        retorno.id = dr[1].ToString().Trim();
+                        retorno.data = RemoverAcentos(dr[2].ToString());
+                        retorno.mesa = Convert.ToInt32(dr[3]);
+                        retorno.total = Convert.ToDecimal(dr[4]);
+                        retorno.pagamento = Convert.ToInt32(dr[5]);
+                        retorno.fechamento = Convert.ToInt32(dr[6]);
+
+                        resultado.Add(retorno);
+                    }
+                    return resultado;
+                }
+                catch (FbException fbex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao recuperar a lista de pedidos do monitor de pedidos.\nFunção: fb_recuperaListaPedidosMonitor()\n\nErro:\n\n" + fbex.ToString(), "Erro");
+                    throw fbex;
+                }
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static List<Entregas> fb_recuperaListaEntregas(String data)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    string mSQL = "Select * from ENTREGA WHERE DATA like '" + data + "%'";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    FbDataReader dr = cmd.ExecuteReader();
+                    List<Entregas> resultado = new List<Entregas>();
+                    while (dr.Read())
+                    {
+                        Entregas retorno = new Entregas();
+                        retorno.Id = Convert.ToInt32(dr[0]);
+                        retorno.Pedido = Convert.ToInt32(dr[1]);
+                        retorno.Senha = Convert.ToInt32(dr[2]);
+                        retorno.Cliente = RemoverAcentos(dr[3].ToString());
+                        retorno.Total = Convert.ToDecimal(dr[4]);
+                        retorno.Taxa = Convert.ToDecimal(dr[5]);
+                        retorno.Entregador = Convert.ToInt32(dr[6]);
+                        retorno.Data = dr[7].ToString();
+                        retorno.Pagamento = Convert.ToInt32(dr[8]);
+                        retorno.Lancamento = Convert.ToInt32(dr[9]);
 
                         resultado.Add(retorno);
                     }

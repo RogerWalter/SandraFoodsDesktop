@@ -216,6 +216,7 @@ namespace SistemaClientes
                     tbCodigo.Enabled = false;
                     tbDesc.Text = recuperado.Nome.Trim(); ;
                     tbDesc.Enabled = false;
+                    tbQtd.Text = "1";
                     //CALCULAMOS O VALOR DO ADICIONAL
                     Itens buscarValor = AcessoFB.fb_pesquisaProdutoPorCodigo(recuperado.Id_Produto);
                     Decimal valorAcrescimo = recuperado.Valor - buscarValor.Valor;
@@ -304,6 +305,7 @@ namespace SistemaClientes
             valorTotal = buscado.Valor;
             tbValor.Text = buscado.Valor.ToString("C", CultureInfo.CurrentCulture);
             tbValor.Enabled = false;
+            tbQtd.Text = "1";
             tbObs.Select();
             tbObs.Focus();
         }
@@ -890,6 +892,7 @@ namespace SistemaClientes
 
         private void tbQtd_Enter(object sender, EventArgs e)
         {
+            tbQtd.SelectAll();
             if (tbAcrescimo.Text == "")
             {
                 return;

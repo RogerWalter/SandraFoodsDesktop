@@ -25,6 +25,11 @@ namespace SistemaClientes
         }
         String titulo, mensagem, rodape;
 
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public void recebeTextos(String tit, String msg, String rod)
         {
             titulo = tit;

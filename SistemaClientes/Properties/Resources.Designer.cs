@@ -143,6 +143,26 @@ namespace SistemaClientes.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_atualizar_cardapio {
+            get {
+                object obj = ResourceManager.GetObject("bt_atualizar_cardapio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_atualizar_cardapio1 {
+            get {
+                object obj = ResourceManager.GetObject("bt_atualizar_cardapio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btMotoboyMapa {
             get {
                 object obj = ResourceManager.GetObject("btMotoboyMapa", resourceCulture);
@@ -156,6 +176,16 @@ namespace SistemaClientes.Properties {
         internal static System.Drawing.Bitmap btMotoboys {
             get {
                 object obj = ResourceManager.GetObject("btMotoboys", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btPedidoNuvem {
+            get {
+                object obj = ResourceManager.GetObject("btPedidoNuvem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +406,16 @@ namespace SistemaClientes.Properties {
         internal static System.Drawing.Bitmap gif_rapido {
             get {
                 object obj = ResourceManager.GetObject("gif_rapido", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icone_mesas {
+            get {
+                object obj = ResourceManager.GetObject("icone_mesas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

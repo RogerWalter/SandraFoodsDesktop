@@ -21,7 +21,7 @@ namespace SistemaClientes
         String dtIni = "";
         String dtFin = "";
         int parametro = 0;
-        int parametroImpressao = 0;
+        int parametroImpressao = 1;
         public String retornaDataIni()
         {
             return dtIni;

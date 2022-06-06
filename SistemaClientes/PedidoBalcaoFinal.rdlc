@@ -366,7 +366,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>3.2834cm</Top>
+            <Top>3.59069cm</Top>
             <Height>1.3407cm</Height>
             <Width>7.37862cm</Width>
             <Style>
@@ -396,7 +396,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>ID</rd:DefaultName>
-            <Left>0.05525cm</Left>
+            <Left>0.08287cm</Left>
             <Height>0.98167cm</Height>
             <Width>7.37862cm</Width>
             <ZIndex>1</ZIndex>
@@ -432,7 +432,7 @@
             </Paragraphs>
             <rd:DefaultName>DATA</rd:DefaultName>
             <Top>0.98167cm</Top>
-            <Left>0.05525cm</Left>
+            <Left>0.08287cm</Left>
             <Height>0.41327cm</Height>
             <Width>7.37862cm</Width>
             <ZIndex>2</ZIndex>
@@ -468,7 +468,7 @@
             </Paragraphs>
             <rd:DefaultName>DATA</rd:DefaultName>
             <Top>1.39494cm</Top>
-            <Left>0.05525cm</Left>
+            <Left>0.08287cm</Left>
             <Height>0.36196cm</Height>
             <Width>7.37862cm</Width>
             <ZIndex>3</ZIndex>
@@ -505,7 +505,8 @@
             </Paragraphs>
             <rd:DefaultName>CLIENTE</rd:DefaultName>
             <Top>2.33993cm</Top>
-            <Height>0.80236cm</Height>
+            <Left>0.05524cm</Left>
+            <Height>0.60833cm</Height>
             <Width>7.37862cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
@@ -553,7 +554,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>TOTAL</rd:DefaultName>
-            <Top>4.80049cm</Top>
+            <Top>5.10778cm</Top>
             <Height>0.63138cm</Height>
             <Width>7.351cm</Width>
             <ZIndex>5</ZIndex>
@@ -589,8 +590,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>OBS1</rd:DefaultName>
-            <Top>5.53771cm</Top>
-            <Height>0.74719cm</Height>
+            <Top>5.77444cm</Top>
+            <Left>0.02762cm</Left>
+            <Height>0.51046cm</Height>
             <Width>7.37862cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
@@ -628,7 +630,7 @@
             </Paragraphs>
             <rd:DefaultName>OBS1</rd:DefaultName>
             <Top>1.7569cm</Top>
-            <Left>0.02762cm</Left>
+            <Left>0.05524cm</Left>
             <Height>0.40664cm</Height>
             <Width>7.40625cm</Width>
             <ZIndex>7</ZIndex>
@@ -637,6 +639,74 @@
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Top</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="OBS3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Trim(Parameters!CELULAR.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>ExtraBold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>OBS1</rd:DefaultName>
+            <Top>3.0541cm</Top>
+            <Left>0.08287cm</Left>
+            <Height>0.40664cm</Height>
+            <Width>7.29575cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="DATA3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Trim(Parameters!ORIGEM.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>DATA</rd:DefaultName>
+            <Top>0.39201cm</Top>
+            <Left>4.65672cm</Left>
+            <Height>0.41327cm</Height>
+            <Width>2.69428cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Top</VerticalAlign>
+              <PaddingLeft>0cm</PaddingLeft>
+              <PaddingRight>0cm</PaddingRight>
+              <PaddingTop>0cm</PaddingTop>
+              <PaddingBottom>0cm</PaddingBottom>
             </Style>
           </Textbox>
         </ReportItems>
@@ -653,7 +723,7 @@
           </BottomBorder>
         </Style>
       </Body>
-      <Width>7.55524cm</Width>
+      <Width>7.58286cm</Width>
       <Page>
         <PageHeight>20.1cm</PageHeight>
         <PageWidth>8.1cm</PageWidth>
@@ -702,6 +772,14 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="CELULAR">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ORIGEM">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -742,6 +820,16 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>PRAZO</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>CELULAR</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>ORIGEM</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

@@ -121,6 +121,9 @@
   <data name="Clientes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Clientes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_atualizar_cardapio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_atualizar_cardapio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="N-Imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\N-Imprimir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,6 +141,9 @@
   </data>
   <data name="IconeAppFinal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\IconeAppFinal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icone_mesas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icone_mesas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fechamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Fechamento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,6 +238,9 @@
   <data name="Impressao-SemCampos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Impressao-SemCampos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btPedidoNuvem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\btPedidoNuvem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OutrasEntregas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\OutrasEntregas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -246,6 +255,9 @@
   </data>
   <data name="Senha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Senha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btMotoboyMapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\btMotoboyMapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Concluido-10ms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Concluido-10ms.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,7 +340,7 @@
   <data name="Procurar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Procurar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btMotoboyMapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\btMotoboyMapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bt_atualizar_cardapio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_atualizar_cardapio1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

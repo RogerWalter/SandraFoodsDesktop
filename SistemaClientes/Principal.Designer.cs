@@ -39,11 +39,15 @@
             this.icConfig = new System.Windows.Forms.PictureBox();
             this.btImpressora = new System.Windows.Forms.PictureBox();
             this.btAdicionarItemPedido = new System.Windows.Forms.PictureBox();
+            this.btAppGarcom = new System.Windows.Forms.PictureBox();
+            this.btPedidoNuvem = new System.Windows.Forms.PictureBox();
             this.icSenha = new System.Windows.Forms.PictureBox();
             this.btRelatorio = new System.Windows.Forms.PictureBox();
             this.btApp = new System.Windows.Forms.PictureBox();
             this.btMotoboy = new System.Windows.Forms.PictureBox();
             this.btLancamento = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.imagemPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagemTaxa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagemProduto)).BeginInit();
@@ -54,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btImpressora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAdicionarItemPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btAppGarcom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btPedidoNuvem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btRelatorio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btApp)).BeginInit();
@@ -131,6 +137,8 @@
             this.panel1.Controls.Add(this.icConfig);
             this.panel1.Controls.Add(this.btImpressora);
             this.panel1.Controls.Add(this.btAdicionarItemPedido);
+            this.panel1.Controls.Add(this.btAppGarcom);
+            this.panel1.Controls.Add(this.btPedidoNuvem);
             this.panel1.Controls.Add(this.icSenha);
             this.panel1.Controls.Add(this.btRelatorio);
             this.panel1.Controls.Add(this.btApp);
@@ -141,6 +149,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(517, 477);
             this.panel1.TabIndex = 17;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -211,6 +220,32 @@
             this.btAdicionarItemPedido.Click += new System.EventHandler(this.pictureBox3_Click);
             this.btAdicionarItemPedido.MouseEnter += new System.EventHandler(this.btAdicionarItemPedido_MouseEnter);
             this.btAdicionarItemPedido.MouseLeave += new System.EventHandler(this.btAdicionarItemPedido_MouseLeave);
+            // 
+            // btAppGarcom
+            // 
+            this.btAppGarcom.BackColor = System.Drawing.Color.Transparent;
+            this.btAppGarcom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAppGarcom.Image = global::SistemaClientes.Properties.Resources.icone_mesas;
+            this.btAppGarcom.Location = new System.Drawing.Point(266, 3);
+            this.btAppGarcom.Name = "btAppGarcom";
+            this.btAppGarcom.Size = new System.Drawing.Size(30, 30);
+            this.btAppGarcom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btAppGarcom.TabIndex = 18;
+            this.btAppGarcom.TabStop = false;
+            this.btAppGarcom.Click += new System.EventHandler(this.btAppGarcom_Click);
+            // 
+            // btPedidoNuvem
+            // 
+            this.btPedidoNuvem.BackColor = System.Drawing.Color.Transparent;
+            this.btPedidoNuvem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPedidoNuvem.Image = global::SistemaClientes.Properties.Resources.btPedidoNuvem;
+            this.btPedidoNuvem.Location = new System.Drawing.Point(302, 3);
+            this.btPedidoNuvem.Name = "btPedidoNuvem";
+            this.btPedidoNuvem.Size = new System.Drawing.Size(30, 30);
+            this.btPedidoNuvem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btPedidoNuvem.TabIndex = 18;
+            this.btPedidoNuvem.TabStop = false;
+            this.btPedidoNuvem.Click += new System.EventHandler(this.btPedidoNuvem_Click);
             // 
             // icSenha
             // 
@@ -285,6 +320,14 @@
             this.btLancamento.MouseEnter += new System.EventHandler(this.btLancamento_MouseEnter);
             this.btLancamento.MouseLeave += new System.EventHandler(this.btLancamento_MouseLeave);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +361,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btImpressora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAdicionarItemPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btAppGarcom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btPedidoNuvem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icSenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btRelatorio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btApp)).EndInit();
@@ -344,6 +389,10 @@
         private System.Windows.Forms.PictureBox icSenha;
         private System.Windows.Forms.PictureBox icConfig;
         private System.Windows.Forms.PictureBox btApp;
+        private System.Windows.Forms.PictureBox btPedidoNuvem;
+        private System.Windows.Forms.PictureBox btAppGarcom;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 

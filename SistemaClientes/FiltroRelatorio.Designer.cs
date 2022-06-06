@@ -162,6 +162,7 @@
             this.cbImprimeOuNao.TabIndex = 55;
             this.cbImprimeOuNao.Text = "     ";
             this.cbImprimeOuNao.UseVisualStyleBackColor = false;
+            this.cbImprimeOuNao.Visible = false;
             this.cbImprimeOuNao.CheckedChanged += new System.EventHandler(this.cbImprimeOuNao_CheckedChanged);
             // 
             // btCancelar

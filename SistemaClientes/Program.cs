@@ -23,7 +23,7 @@ namespace SistemaClientes
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Principal());
-            //Application.Run(new PosicaoMotoboy());
+            //Application.Run(new PedidosNaNuvem());
             //Application.Run(new MonitorAplicativo());
             //Application.Run(new Pedido());
             //Application.Run(new ConsultarPedido());

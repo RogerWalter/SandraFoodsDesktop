@@ -287,3 +287,5 @@ C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Dat
 C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Data.SQLite.xml
 C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.PosicaoMotoboy.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.PedidosNaNuvem.resources
+C:\Users\roger\source\repos\SistemaClientes\SistemaClientes\obj\Debug\SistemaClientes.Comandas.resources

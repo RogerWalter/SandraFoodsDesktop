@@ -29,6 +29,11 @@ namespace SistemaClientes
         List<PedidoMonitor> listaMonitor = new List<PedidoMonitor>();
         List<AndamentoFirebase> listaAndamentos = new List<AndamentoFirebase>();
         List<Itens_Pedido_Firebase> listaItensPedido = new List<Itens_Pedido_Firebase>();
+        List<Comanda> listaComanda = new List<Comanda>();
+        List<ItemComanda> listaItensComanda = new List<ItemComanda>();
+        List<Comanda> listaComandasInseridas = new List<Comanda>();
+        List<Entregas> listaEntregas = new List<Entregas>();
+        List<Entregas> listaEntregasInseridas = new List<Entregas>();
         public Principal()
         {
             InitializeComponent();
@@ -41,7 +46,13 @@ namespace SistemaClientes
             BasePath = "https://sandra-foods-34d79-default-rtdb.firebaseio.com/"
         };
 
-        IFirebaseClient client;
+        IFirebaseConfig config_garcom = new FirebaseConfig
+        {
+            AuthSecret = "yKdYGvHvhJgzoHzo8vVDhy6dN5scylE77DqpUgxh",
+            BasePath = "https://comandas-5e2ea-default-rtdb.firebaseio.com/"
+        };
+
+        IFirebaseClient client, client_comandas;
 
         private void Principal_Load(object sender, EventArgs e)
         {
@@ -60,6 +71,7 @@ namespace SistemaClientes
                 try
                 {
                     client = new FireSharp.FirebaseClient(config);
+                    client_comandas = new FireSharp.FirebaseClient(config_garcom);
                 }
                 catch
                 {
@@ -73,10 +85,12 @@ namespace SistemaClientes
                 criaListenerPedidosApp();
                 criaListeneAndamentosApp();
             }
+            criaListenerComandasFechadas();
+            criaListenerComandasEntregas();
         } 
         async void criaListenerPedidosApp()
         {
-            //Task.Delay(150000).ContinueWith(t => criaListenerPedidosApp());
+            //Task.Delay(2500).ContinueWith(t => criaListenerPedidosApp());
             EventStreamResponse response = await client.OnAsync(@"pedido", 
                     added: (s, args, context) =>
                     {
@@ -90,6 +104,9 @@ namespace SistemaClientes
                     {
                          
                     });
+            //Task.Delay(300000).ContinueWith(t => response.Dispose());
+            //Task.Delay(300000).ContinueWith(t => criaListenerPedidosApp());
+            //response.Dispose(); -Remover o listener
         }
 
         async void criaListeneAndamentosApp()
@@ -108,8 +125,49 @@ namespace SistemaClientes
                     {
 
                     });
+            //Task.Delay(300000).ContinueWith(t => response.Dispose());
+            //Task.Delay(300000).ContinueWith(t => criaListenerPedidosApp());
         }
+        async void criaListenerComandasFechadas()
+        {
+            //Task.Delay(2500).ContinueWith(t => criaListenerPedidosApp());
+            EventStreamResponse response = await client_comandas.OnAsync(@"fechado",
+                    added: (s, args, context) =>
+                    {
+                        inserirNovoPagamentoGarcom();
+                    },
+                    changed: (s, args, context) =>
+                    {
+                        
+                    },
+                    removed: (s, args, context) =>
+                    {
 
+                    });
+            //Task.Delay(2500).ContinueWith(t => response.Dispose());
+            //Task.Delay(2500).ContinueWith(t => criaListenerPedidosApp());
+            //response.Dispose(); -Remover o listener
+        }
+        async void criaListenerComandasEntregas()
+        {
+            //Task.Delay(2500).ContinueWith(t => criaListenerPedidosApp());
+            EventStreamResponse response = await client_comandas.OnAsync(@"entrega",
+                    added: (s, args, context) =>
+                    {
+                        inserirNovaEntregaGarcom();
+                    },
+                    changed: (s, args, context) =>
+                    {
+
+                    },
+                    removed: (s, args, context) =>
+                    {
+
+                    });
+            //Task.Delay(2500).ContinueWith(t => response.Dispose());
+            //Task.Delay(2500).ContinueWith(t => criaListenerPedidosApp());
+            //response.Dispose(); -Remover o listener
+        }
         public void inserirNovoPedidoApp()
         {
             //RECEBEMOS A LISTA COM TODOS OS PEDIDOS
@@ -284,6 +342,116 @@ namespace SistemaClientes
                     var delete2 = client.Delete(@"andamento/" + recuperado.id);
                     var delete3 = client.Delete(@"pedido-itens/" + recuperado.id);
                     var delete4 = client.Delete(@"notificacao/" + recuperado.id);
+                }
+            }
+        }
+
+        public void inserirNovoPagamentoGarcom()
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        public void inserirNovaEntregaGarcom()
+        {
+            if (backgroundWorker2.IsBusy != true)
+            {
+                backgroundWorker2.RunWorkerAsync();
+            }
+        }
+        public void inserirNovaComandaFechada()
+        {
+            String data = DateTime.Now.ToString();
+            data = data.Substring(0, 10);
+
+            //RECUPERAMOS O QUE JÁ FOI INSERIDO
+            listaComandasInseridas.Clear();
+            listaComandasInseridas = AcessoFB.fb_recuperaListaComandas(data);
+
+            //RECEBEMOS A LISTA COM TODOS OS PEDIDOS
+            listaComanda.Clear();
+            listaItensComanda.Clear();
+            FirebaseResponse response = client_comandas.Get(@"fechado");
+            FirebaseResponse response_itens = client_comandas.Get(@"fechado-itens");
+            Dictionary<string, Comanda> getComanda = JsonConvert.DeserializeObject<Dictionary<string, Comanda>>(response.Body.ToString());
+            Dictionary<string, ItemComanda> getItens = JsonConvert.DeserializeObject<Dictionary<string, ItemComanda>>(response_itens.Body.ToString());
+            if(response.Body.Equals("null"))
+                return;
+            foreach (var item in getComanda)
+            {
+                Comanda inserir = new Comanda();
+                inserir.id = item.Value.id.Replace("T-", "").Replace("P-", ""); //_chave_comanda
+
+                //COMPARAMOS COM AS COMANDAS QUE JÁ TEMOS INSERIDAS
+                if (listaComandasInseridas.Exists(x => x.id == inserir.id && x.fechamento == item.Value.fechamento))
+                {
+                    try{
+                        String chaveOndeDeletar = item.Value.id;
+                        var delete = client_comandas.Delete(@"fechado/" + chaveOndeDeletar);
+                    }
+                    catch{
+                        MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
+                    }
+                    continue;
+                }
+                //ADICIONAR NOVO LANÇAMENTO PARA OS RELATÓRIOS DO SISTEMA
+                Lancamentos novoLanc = new Lancamentos();
+                novoLanc.Id = AcessoFB.fb_verificaUltIdLanc() + 1;
+                novoLanc.Data = data;
+                novoLanc.Valor = item.Value.total;
+                novoLanc.Pagamento = item.Value.pagamento;
+                novoLanc.Tipo = 9;
+                novoLanc.Pedido = 0;
+                AcessoFB.fb_adicionarLanc(novoLanc);
+
+                //ADICIONAR NOVA COMANDA
+                inserir.data = item.Value.data;
+                inserir.mesa = item.Value.mesa;
+                inserir.total = item.Value.total;
+                inserir.pagamento = item.Value.pagamento;
+                inserir.fechamento = item.Value.fechamento;
+                //SE FOR FECHAMENTO 1 (TOTAL), PRECISAMOS VERIFICAR PAGAMENTO
+                //PARCIAL PARA SOMAR E SALVAR O TOTAL REAL DA MESA.
+                if (item.Value.fechamento == 1)
+                {
+                    Decimal valorParcialPago = AcessoFB.fb_verificaParcialComanda(inserir.id);
+                    if(valorParcialPago > 0)//encontrou
+                        inserir.total = valorParcialPago + item.Value.total;
+                }
+                AcessoFB.fb_adicionaNovaComanda(inserir);
+
+                //ADICIONAR NOVO ITEM DA COMANDA
+                foreach (var it in getItens)
+                {
+                    if(it.Value.id.Equals(item.Value.id))
+                    {
+                        String chave_deletar = it.Key.ToString();
+                        ItemComanda ins = new ItemComanda();
+                        ins.id = it.Value.id.Replace("T-", "").Replace("P-", "");
+                        ins.mesa = it.Value.mesa;
+                        ins.data = it.Value.data;
+                        ins.nome = it.Value.nome;
+                        ins.valor = it.Value.valor;
+                        ins.qtd = it.Value.qtd;
+                        ins.grupo = AcessoFB.fb_verificaGrupoItemComanda(ins.nome);
+
+                        AcessoFB.fb_adicionaItemComanda(ins);
+                        try{
+                            var delete = client_comandas.Delete(@"fechado-itens/" + chave_deletar);
+                        }
+                        catch{
+                            MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
+                        }
+                    }
+                }
+                try{
+                    String chaveOndeDeletar = item.Value.id;
+                    var delete = client_comandas.Delete(@"fechado/" + chaveOndeDeletar);
+                }
+                catch{
+                    MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
                 }
             }
         }
@@ -895,11 +1063,11 @@ namespace SistemaClientes
             inserir.Observacao = RemoverAcentos(pedidoNovo.observacao.Replace("'", " ")).Trim().ToUpper();
             
             if (pedidoNovo.pagamento.Trim() == "DINHEIRO")
-                inserir.Pagamento = 1;
+                inserir.Pagamento = 0;
             if (pedidoNovo.pagamento.Trim() == "CARTÃO")
-                inserir.Pagamento = 2;
+                inserir.Pagamento = 1;
             if (pedidoNovo.pagamento.Trim() == "PIX")
-                inserir.Pagamento = 3;
+                inserir.Pagamento = 2;
 
             inserir.Desconto = Convert.ToDecimal(pedidoNovo.desconto.Replace(".", ","));
             AcessoFB.fb_adicionaNovoPedido(inserir); //PEDIDO ADICIONADO
@@ -913,6 +1081,12 @@ namespace SistemaClientes
                 novaEnt.Id = AcessoFB.fb_verificaUltIdEntrega() + 1;
                 novaEnt.Pedido = inserir.Id;
                 novaEnt.Senha = inserir.Senha;
+                /*if (inserir.Pagamento == 0)
+                    novaEnt.Cliente = "DINHEIRO";
+                if (inserir.Pagamento == 1)
+                    novaEnt.Cliente = "CARTAO";
+                if (inserir.Pagamento == 2)
+                    novaEnt.Cliente = "PIX";*/
                 novaEnt.Cliente = RemoverAcentos(inserir.Nome_Cliente).Trim().ToUpper();
                 novaEnt.Total = inserir.Valor;
                 novaEnt.Data = inserir.Data.Substring(0,10);
@@ -1069,6 +1243,41 @@ namespace SistemaClientes
             AcessoFB.insereDadosImpressao(senha, data, hora, cliente, celular, rua, numero, bairro, referencia, taxa, total, obs, desc, pagamento);
             AcessoFB.insereItensFirebaseImpressao(inserir.Id);
 
+
+            if (AcessoFB.fb_verificaPastelPedidoAplicativo(inserir.Id) == 1)
+            {
+                //POSSUI PASTEL
+                List<Itens_Pedido> listaPasteis = new List<Itens_Pedido>();
+                listaPasteis = AcessoFB.recuperaPasteisInseridosAplicativo(inserir.Id);
+                for (int i = 0; i < listaPasteis.Count; i++)
+                {
+                    Itens_Pedido item = listaPasteis[i];
+                    int qtdImpressao = item.Quantidade;
+                    if (qtdImpressao > 1)
+                    {
+                        for (int j = 0; j < qtdImpressao; j++)
+                        {
+                            ImpressoraImprimir nova = new ImpressoraImprimir();
+                            if (item.Obs.Trim() == "" || item.Obs == null) //NÃO POSSUI OBS/ADD
+                                nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim(), "------------------");
+                            else
+                                nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
+                            nova.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        ImpressoraImprimir nova = new ImpressoraImprimir();
+                        if (item.Obs.Trim() == "" || item.Obs == null) //NÃO POSSUI OBS/ADD
+                            nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim(), "------------------");
+                        else
+                            nova.recebeTextos("PEDIDO: " + senha + "\n------------------", item.Nome.Trim() + "\n\n" + item.Obs.Trim().Replace("-", "+"), "------------------"); ;
+                        nova.ShowDialog();
+                    }
+                }
+            }
+
+
             if (inserir.Tipo == 1)
             {
                 imprimirPedidoEntrega();
@@ -1081,11 +1290,13 @@ namespace SistemaClientes
         public void imprimirPedidoBalcao()
         {
             ImpressaoBalcao nova = new ImpressaoBalcao();
+            nova.recebeParametroOrigem(1);
             nova.ShowDialog();
         }
         public void imprimirPedidoEntrega()
         {
             ImpressaoEntrega nova = new ImpressaoEntrega();
+            nova.recebeParametroOrigem(1);
             nova.ShowDialog();
 
             AcessoFB.fb_limpaTabelasImpressao();
@@ -1106,6 +1317,112 @@ namespace SistemaClientes
             valor = Regex.Replace(valor, "[úùûü]", "u");
             valor = Regex.Replace(valor, "[ç]", "c");
             return valor;
+        }
+
+        private void btPedidoNuvem_Click(object sender, EventArgs e)
+        {
+            parametrosSistema = AcessoFB.fb_recuperaParametrosSistema();
+            if (parametrosSistema.sincronizar == 1)
+            {
+                PedidosNaNuvem nova = new PedidosNaNuvem();
+                nova.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("A sincronização com o aplicativo está desabilitada.\nNão é possível gerenciar pedidos vindos do aplicativo.\nVerifique os parâmetros do sistema e tente novamente.", "Aplicativo desabilitado");
+                this.Close();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            inserirNovaComandaFechada();
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btAppGarcom_Click(object sender, EventArgs e)
+        {
+            Comandas nova = new Comandas();
+            nova.ShowDialog();
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            adicionaNovaEntregaComanda();
+        }
+
+        public void adicionaNovaEntregaComanda()
+        {
+            String data = DateTime.Now.ToString();
+            data = data.Substring(0, 10);
+
+            //RECUPERAMOS O QUE JÁ FOI INSERIDO
+            listaEntregasInseridas.Clear();
+            listaEntregasInseridas = AcessoFB.fb_recuperaListaEntregas(data);
+
+            //RECEBEMOS A LISTA COM TODOS AS ENTREGAS
+            listaEntregas.Clear();
+            FirebaseResponse response = client_comandas.Get(@"entrega");
+            Dictionary<string, Entregas_Firebase> getEntrega = JsonConvert.DeserializeObject<Dictionary<string, Entregas_Firebase>>(response.Body.ToString());
+            if (response.Body.Equals("null"))
+                return;
+            foreach (var item in getEntrega)
+            {
+                Entregas inserir = new Entregas();
+                inserir.Cliente = item.Value.cliente; ; //_chave_comanda
+
+                //COMPARAMOS COM AS COMANDAS QUE JÁ TEMOS INSERIDAS
+                if (listaEntregasInseridas.Exists(x => x.Cliente == inserir.Cliente))
+                {
+                    try
+                    {
+                        String chaveOndeDeletar = item.Value.cliente;
+                        var delete = client_comandas.Delete(@"entrega/" + chaveOndeDeletar);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
+                    }
+                    continue;
+                }
+                inserir.Id = AcessoFB.fb_verificaUltIdEntrega() + 1;
+                inserir.Pedido = 0;
+                inserir.Senha = 0;
+                inserir.Total = item.Value.total;
+                inserir.Data = data;
+                inserir.Pagamento = item.Value.pagamento;
+                inserir.Lancamento = 0;
+                inserir.Taxa = item.Value.taxa;
+                inserir.Entregador = 0;
+                //Verifica se o parametro para unico motoboy está ativo
+                Parametros parametros = AcessoFB.fb_recuperaParametrosSistema();
+                int parametroUnicoMotoboy = parametros.motoboy;
+                if (parametroUnicoMotoboy == 1)
+                {
+                    int entregador = AcessoFB.fb_buscaIdUnicoMotoboy();
+                    inserir.Entregador = entregador;
+                }
+                else
+                {
+                    inserir.Entregador = 0;
+                }
+                AcessoFB.fb_adicionaNovaEntrega(inserir);
+                try
+                {
+                    String chaveOndeDeletar = item.Value.cliente;
+                    var delete = client_comandas.Delete(@"entrega/" + chaveOndeDeletar);
+                }
+                catch
+                {
+                    MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
+                }
+            }
+
+            
         }
     }
 }

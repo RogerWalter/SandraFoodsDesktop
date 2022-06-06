@@ -25,8 +25,13 @@ namespace SistemaClientes
             AutoPrintCls autoprintme = new AutoPrintCls(reportViewer1.LocalReport);
             autoprintme.Print();
         }
+        int parametroOrigem = 0;
 
-        
+        public void recebeParametroOrigem(int parametro)
+        {
+            parametroOrigem = parametro;
+        }
+
 
         private void ImpressaoEntrega_Load(object sender, EventArgs e)
         {
@@ -50,10 +55,13 @@ namespace SistemaClientes
             }
             if (imprimir.obs.Length <= 0)
                 imprimir.obs = " ";
-            /*if(imprimir.rua.Trim().ToUpper().Substring(0,3) != "RUA")
-            {
-                imprimir.rua = "RUA " + imprimir.rua;
-            }*/
+
+            String origem;
+            if (parametroOrigem == 0)
+                origem = " ";
+            else
+                origem = "APP";
+
             Parametros parametros = AcessoFB.fb_recuperaParametrosSistema();
             DateTime prazoDateTime = DateTime.ParseExact(imprimir.hora.Trim(), "HH:mm:ss", CultureInfo.InvariantCulture);
             DateTime prazoFinalDateTime = prazoDateTime.AddMinutes(parametros.entrega);
@@ -74,6 +82,7 @@ namespace SistemaClientes
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("OBS", imprimir.obs));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("PAGAMENTO", imprimir.pagamento));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("PRAZO", prazoFinal));
+            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ORIGEM", origem));
 
             this.reportViewer1.RefreshReport();
             /*

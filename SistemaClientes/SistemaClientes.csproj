@@ -303,6 +303,13 @@
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Clientes.cs" />
+    <Compile Include="Comanda.cs" />
+    <Compile Include="Comandas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comandas.Designer.cs">
+      <DependentUpon>Comandas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +373,7 @@
       <DependentUpon>DataSet11.xsd</DependentUpon>
     </Compile>
     <Compile Include="Entregas.cs" />
+    <Compile Include="Entregas_Firebase.cs" />
     <Compile Include="Fechamento.cs" />
     <Compile Include="FECHAMENTO_IMPRESSAO.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -421,10 +429,12 @@
     <Compile Include="ImpressoraImprimir.Designer.cs">
       <DependentUpon>ImpressoraImprimir.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemComanda.cs" />
     <Compile Include="Itens.cs" />
     <Compile Include="Itens_Firebase.cs" />
     <Compile Include="Itens_Pedido.cs" />
     <Compile Include="Itens_Pedido_Firebase.cs" />
+    <Compile Include="Itens_Pedido_Relatorio.cs" />
     <Compile Include="Lancamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,7 +479,14 @@
     </Compile>
     <Compile Include="PedidoFirebase.cs" />
     <Compile Include="PedidoMonitor.cs" />
+    <Compile Include="PedidoNuvem.cs" />
     <Compile Include="Pedidos.cs" />
+    <Compile Include="PedidosNaNuvem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosNaNuvem.Designer.cs">
+      <DependentUpon>PedidosNaNuvem.cs</DependentUpon>
+    </Compile>
     <Compile Include="PosicaoMotoboy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -574,6 +591,9 @@
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comandas.resx">
+      <DependentUpon>Comandas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
@@ -648,6 +668,9 @@
     <EmbeddedResource Include="PedidoBalcao.rdlc" />
     <EmbeddedResource Include="PedidoBalcaoFinal.rdlc" />
     <EmbeddedResource Include="PedidoEntregaFinal.rdlc" />
+    <EmbeddedResource Include="PedidosNaNuvem.resx">
+      <DependentUpon>PedidosNaNuvem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PosicaoMotoboy.resx">
       <DependentUpon>PosicaoMotoboy.cs</DependentUpon>
     </EmbeddedResource>
@@ -855,6 +878,10 @@
     <None Include="Imagens\IconeAppFinal.png" />
     <None Include="Imagens\BotaoAnuncio.png" />
     <None Include="Imagens\btMotoboyMapa.png" />
+    <None Include="Imagens\btPedidoNuvem.png" />
+    <None Include="Resources\icone_mesas.png" />
+    <None Include="Resources\bt_atualizar_cardapio.png" />
+    <None Include="Resources\bt_atualizar_cardapio1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

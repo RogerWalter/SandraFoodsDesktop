@@ -19,7 +19,12 @@ namespace SistemaClientes
         {
             InitializeComponent();
         }
-        
+        int parametroOrigem = 0;
+
+        public void recebeParametroOrigem(int parametro)
+        {
+            parametroOrigem = parametro;
+        }
 
         private void AutoPrint()
         {
@@ -53,6 +58,12 @@ namespace SistemaClientes
             if (imprimir.obs.Length <= 0)
                 imprimir.obs = " ";
 
+            String origem;
+            if (parametroOrigem == 0)
+                origem = " ";
+            else
+                origem = "APP";
+
             Parametros parametros = AcessoFB.fb_recuperaParametrosSistema();
             DateTime prazoDateTime = DateTime.ParseExact(imprimir.hora.Trim(), "HH:mm:ss", CultureInfo.InvariantCulture);
             DateTime prazoFinalDateTime = prazoDateTime.AddMinutes(parametros.retirada);
@@ -62,9 +73,11 @@ namespace SistemaClientes
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DATA", imprimir.hora));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("HORA", imprimir.data));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("CLIENTE", imprimir.cliente));
+            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("CELULAR", imprimir.celular));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("TOTAL", imprimir.total));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("OBS", imprimir.obs));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("PRAZO", prazoFinal));
+            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("ORIGEM", origem));
             this.reportViewer1.RefreshReport();
             /*
             //CODIGO USADO PARA GERAR O PDF, IMPRIMIR E EXCLUIR, PARA QUE NÃO EXISTAM FALHAS QUANTO AO LAYOUT DO PEDIDO

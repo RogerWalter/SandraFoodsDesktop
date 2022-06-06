@@ -17,7 +17,6 @@ namespace SistemaClientes
         public int Entregador { get; set; }
         public String Data { get; set; }
         public int Pagamento { get; set; }
-
         public int Lancamento { get; set; }
     }
 }
