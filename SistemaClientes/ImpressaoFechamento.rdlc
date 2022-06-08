@@ -9,6 +9,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>9349ebde-77f5-43a8-aa01-9fe82466463e</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="FechamentoMotoboy">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>4f73a335-300d-4dbe-9edb-8f202f0e7dab</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
@@ -33,6 +40,10 @@
           <DataField>TAXA</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="PAGAMENTO">
+          <DataField>PAGAMENTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>FECHAMENTO_IMPRESSAO</rd:DataSetName>
@@ -52,16 +63,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.70157cm</Width>
+                  <Width>0.83386cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.83734cm</Width>
+                  <Width>2.96963cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.91792cm</Width>
+                  <Width>2.05021cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.65553cm</Width>
+                  <Width>1.78782cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -294,6 +305,7 @@
                                   <Value>=Trim(Fields!CLIENTE.Value)</Value>
                                   <Style>
                                     <FontFamily>Lucida Console</FontFamily>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <Color>#333333</Color>
                                   </Style>
@@ -411,6 +423,55 @@
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
+                <TablixRow>
+                  <Height>0.46075cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Trim(Fields!PAGAMENTO.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Lucida Console</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>White</BackgroundColor>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>0cm</PaddingLeft>
+                            <PaddingRight>0cm</PaddingRight>
+                            <PaddingTop>0cm</PaddingTop>
+                            <PaddingBottom>0cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>4</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
@@ -428,13 +489,18 @@
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Detalhes" />
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>2.02903cm</Top>
-            <Height>1.09417cm</Height>
-            <Width>7.11236cm</Width>
+            <Left>0.03528cm</Left>
+            <Height>1.55492cm</Height>
+            <Width>7.64153cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -469,8 +535,9 @@
             </Paragraphs>
             <rd:DefaultName>ENTREGADOR</rd:DefaultName>
             <Top>0.6882cm</Top>
+            <Left>0.03528cm</Left>
             <Height>0.62646cm</Height>
-            <Width>6.98374cm</Width>
+            <Width>7.64153cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -503,8 +570,9 @@
             </Paragraphs>
             <rd:DefaultName>DATA</rd:DefaultName>
             <Top>0.05292cm</Top>
+            <Left>0.03528cm</Left>
             <Height>0.63528cm</Height>
-            <Width>6.98374cm</Width>
+            <Width>7.64153cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -538,8 +606,9 @@
             </Paragraphs>
             <rd:DefaultName>ENTREGADOR</rd:DefaultName>
             <Top>1.26146cm</Top>
+            <Left>0.03528cm</Left>
             <Height>0.74111cm</Height>
-            <Width>6.98373cm</Width>
+            <Width>7.64152cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -554,6 +623,7 @@
           </Textbox>
           <Line Name="Line2">
             <Top>1.9232cm</Top>
+            <Left>0.03528cm</Left>
             <Height>0cm</Height>
             <Width>7.11236cm</Width>
             <ZIndex>4</ZIndex>
@@ -564,7 +634,8 @@
             </Style>
           </Line>
           <Line Name="Line3">
-            <Top>3.19375cm</Top>
+            <Top>3.75848cm</Top>
+            <Left>0.03528cm</Left>
             <Height>0cm</Height>
             <Width>7.11236cm</Width>
             <ZIndex>5</ZIndex>
@@ -581,19 +652,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Qtd de Entregas:</Value>
+                    <Value>Qtd de Entregas:
+</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>=Trim(Parameters!QTDENT.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>3.15848cm</Top>
-            <Height>0.6cm</Height>
-            <Width>4.65665cm</Width>
+            <Top>3.93487cm</Top>
+            <Left>0.03528cm</Left>
+            <Height>0.83209cm</Height>
+            <Width>7.64153cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -612,22 +694,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Trim(Parameters!QTDENT.Value)</Value>
+                    <Value>Total em Entregas:
+</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>=Trim(Parameters!TOTAL.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>3.15848cm</Top>
-            <Left>4.65665cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.45571cm</Width>
+            <Top>4.76696cm</Top>
+            <Left>0.03527cm</Left>
+            <Height>0.83209cm</Height>
+            <Width>7.64153cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -646,22 +736,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Trim(Parameters!TOTAL.Value)</Value>
+                    <Value>Total em Taxas:
+</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>=Trim(Parameters!TAXA.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>3.75848cm</Top>
-            <Left>4.65665cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.45571cm</Width>
+            <Top>5.59905cm</Top>
+            <Left>0.03528cm</Left>
+            <Height>0.83209cm</Height>
+            <Width>7.64153cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -680,19 +778,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total em Entregas:</Value>
+                    <Value>Troco do Entregador:
+</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>=Trim(Parameters!TROCO.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>3.75848cm</Top>
-            <Height>0.6cm</Height>
-            <Width>4.65665cm</Width>
+            <Top>6.43114cm</Top>
+            <Left>0.03527cm</Left>
+            <Height>0.83209cm</Height>
+            <Width>7.64153cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -711,22 +820,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Trim(Parameters!TAXA.Value)</Value>
+                    <Value>Total do Entregador:
+</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>=Trim(Parameters!TOTALMOT.Value)</Value>
+                    <Style>
+                      <FontFamily>Lucida Console</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>4.35848cm</Top>
-            <Left>4.65665cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.45571cm</Width>
+            <Top>7.26323cm</Top>
+            <Left>0.03528cm</Left>
+            <Height>0.83209cm</Height>
+            <Width>7.64153cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -738,174 +855,13 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="QTDENT6">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Total em Taxas:</Value>
-                    <Style>
-                      <FontFamily>Lucida Console</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>4.35848cm</Top>
-            <Height>0.6cm</Height>
-            <Width>4.65665cm</Width>
-            <ZIndex>11</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="QTDENT7">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Trim(Parameters!TROCO.Value)</Value>
-                    <Style>
-                      <FontFamily>Lucida Console</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>4.95848cm</Top>
-            <Left>4.65665cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.45571cm</Width>
-            <ZIndex>12</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="QTDENT8">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Troco do Entregador:</Value>
-                    <Style>
-                      <FontFamily>Lucida Console</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>4.95848cm</Top>
-            <Height>0.6cm</Height>
-            <Width>4.65665cm</Width>
-            <ZIndex>13</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="QTDENT9">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Total do Entregador:</Value>
-                    <Style>
-                      <FontFamily>Lucida Console</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>5.55848cm</Top>
-            <Height>0.6cm</Height>
-            <Width>4.65665cm</Width>
-            <ZIndex>14</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="QTDENT10">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Trim(Parameters!TOTALMOT.Value)</Value>
-                    <Style>
-                      <FontFamily>Lucida Console</FontFamily>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>QTDENT</rd:DefaultName>
-            <Top>5.55848cm</Top>
-            <Left>4.65665cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.45571cm</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>6.18493cm</Height>
+        <Height>8.20068cm</Height>
         <Style />
       </Body>
-      <Width>8cm</Width>
+      <Width>7.96565cm</Width>
       <Page>
-        <PageHeight>20cm</PageHeight>
+        <PageHeight>50cm</PageHeight>
         <PageWidth>8.1cm</PageWidth>
         <InteractiveHeight>20cm</InteractiveHeight>
         <InteractiveWidth>8.1cm</InteractiveWidth>

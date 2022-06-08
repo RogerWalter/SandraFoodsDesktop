@@ -138,12 +138,12 @@ namespace SistemaClientes
                     if (busca.Tipo == 1)
                     {
                         rbEnt.Checked = true;
-
+                        tipoPedido = 1;
                     }
                     if (busca.Tipo == 2)
                     {
                         rbBalc.Checked = true;
-
+                        tipoPedido = 2;
                     }
                     
                     tbObs.Text = busca.Observacao.Trim(); 
@@ -1113,6 +1113,11 @@ namespace SistemaClientes
                     resto = tbTotal.Text.Substring(2, tamanho - 2);
                     total = Convert.ToDecimal(resto);
                     atualiza.Valor = total;
+
+                    if (rbEnt.Checked == true)
+                        atualiza.Tipo = 1;
+                    if (rbBalc.Checked == true)
+                        atualiza.Tipo = 2;
 
                     if (tbDesconto.Text == "")
                     {

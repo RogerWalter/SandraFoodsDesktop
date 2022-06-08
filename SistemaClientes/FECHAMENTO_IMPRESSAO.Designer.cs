@@ -287,6 +287,8 @@ namespace SistemaClientes {
             
             private global::System.Data.DataColumn columnTAXA;
             
+            private global::System.Data.DataColumn columnPAGAMENTO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public IMPRESSAO_FECHAMENTODataTable() {
@@ -354,6 +356,14 @@ namespace SistemaClientes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PAGAMENTOColumn {
+                get {
+                    return this.columnPAGAMENTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace SistemaClientes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IMPRESSAO_FECHAMENTORow AddIMPRESSAO_FECHAMENTORow(int SENHA, string CLIENTE, decimal TOTAL, decimal TAXA) {
+            public IMPRESSAO_FECHAMENTORow AddIMPRESSAO_FECHAMENTORow(int SENHA, string CLIENTE, decimal TOTAL, decimal TAXA, string PAGAMENTO) {
                 IMPRESSAO_FECHAMENTORow rowIMPRESSAO_FECHAMENTORow = ((IMPRESSAO_FECHAMENTORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SENHA,
                         CLIENTE,
                         TOTAL,
-                        TAXA};
+                        TAXA,
+                        PAGAMENTO};
                 rowIMPRESSAO_FECHAMENTORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIMPRESSAO_FECHAMENTORow);
                 return rowIMPRESSAO_FECHAMENTORow;
@@ -422,6 +433,7 @@ namespace SistemaClientes {
                 this.columnCLIENTE = base.Columns["CLIENTE"];
                 this.columnTOTAL = base.Columns["TOTAL"];
                 this.columnTAXA = base.Columns["TAXA"];
+                this.columnPAGAMENTO = base.Columns["PAGAMENTO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,7 +447,10 @@ namespace SistemaClientes {
                 base.Columns.Add(this.columnTOTAL);
                 this.columnTAXA = new global::System.Data.DataColumn("TAXA", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTAXA);
+                this.columnPAGAMENTO = new global::System.Data.DataColumn("PAGAMENTO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPAGAMENTO);
                 this.columnCLIENTE.MaxLength = 20;
+                this.columnPAGAMENTO.MaxLength = 8;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -642,6 +657,22 @@ namespace SistemaClientes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PAGAMENTO {
+                get {
+                    try {
+                        return ((string)(this[this.tableIMPRESSAO_FECHAMENTO.PAGAMENTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'PAGAMENTO\' na tabela \'IMPRESSAO_FECHAMENTO\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIMPRESSAO_FECHAMENTO.PAGAMENTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSENHANull() {
                 return this.IsNull(this.tableIMPRESSAO_FECHAMENTO.SENHAColumn);
             }
@@ -686,6 +717,18 @@ namespace SistemaClientes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTAXANull() {
                 this[this.tableIMPRESSAO_FECHAMENTO.TAXAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPAGAMENTONull() {
+                return this.IsNull(this.tableIMPRESSAO_FECHAMENTO.PAGAMENTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPAGAMENTONull() {
+                this[this.tableIMPRESSAO_FECHAMENTO.PAGAMENTOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -852,16 +895,8 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             tableMapping.ColumnMappings.Add("CLIENTE", "CLIENTE");
             tableMapping.ColumnMappings.Add("TOTAL", "TOTAL");
             tableMapping.ColumnMappings.Add("TAXA", "TAXA");
+            tableMapping.ColumnMappings.Add("PAGAMENTO", "PAGAMENTO");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"IMPRESSAO_FECHAMENTO\" (\"SENHA\", \"CLIENTE\", \"TOTAL\", \"TAXA\") VALUES (" +
-                "?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("SENHA", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SENHA", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("CLIENTE", global::System.Data.Odbc.OdbcType.Char, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CLIENTE", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("TOTAL", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(2)), "TOTAL", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("TAXA", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(18)), ((byte)(2)), "TAXA", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -877,7 +912,8 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"SENHA\", \"CLIENTE\", \"TOTAL\", \"TAXA\" FROM \"IMPRESSAO_FECHAMENTO\"";
+            this._commandCollection[0].CommandText = "SELECT \"SENHA\", \"CLIENTE\", \"TOTAL\", \"TAXA\", \"PAGAMENTO\" FROM \"IMPRESSAO_FECHAMENT" +
+                "O\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -904,65 +940,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FECHAMENTO_IMPRESSAO.IMPRESSAO_FECHAMENTODataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(FECHAMENTO_IMPRESSAO dataSet) {
-            return this.Adapter.Update(dataSet, "IMPRESSAO_FECHAMENTO");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int SENHA, string CLIENTE, decimal TOTAL, decimal TAXA) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SENHA));
-            if ((CLIENTE == null)) {
-                throw new global::System.ArgumentNullException("CLIENTE");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CLIENTE));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(TOTAL));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(TAXA));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
     }
     
     /// <summary>
@@ -977,8 +954,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private IMPRESSAO_FECHAMENTOTableAdapter _iMPRESSAO_FECHAMENTOTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -991,20 +966,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public IMPRESSAO_FECHAMENTOTableAdapter IMPRESSAO_FECHAMENTOTableAdapter {
-            get {
-                return this._iMPRESSAO_FECHAMENTOTableAdapter;
-            }
-            set {
-                this._iMPRESSAO_FECHAMENTOTableAdapter = value;
             }
         }
         
@@ -1027,10 +988,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._iMPRESSAO_FECHAMENTOTableAdapter != null) 
-                            && (this._iMPRESSAO_FECHAMENTOTableAdapter.Connection != null))) {
-                    return this._iMPRESSAO_FECHAMENTOTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1044,9 +1001,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1058,15 +1012,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(FECHAMENTO_IMPRESSAO dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.IMPRESSAO_FECHAMENTO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._iMPRESSAO_FECHAMENTOTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1077,14 +1022,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(FECHAMENTO_IMPRESSAO dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.IMPRESSAO_FECHAMENTO.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._iMPRESSAO_FECHAMENTOTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1095,14 +1032,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(FECHAMENTO_IMPRESSAO dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.IMPRESSAO_FECHAMENTO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._iMPRESSAO_FECHAMENTOTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1142,11 +1071,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._iMPRESSAO_FECHAMENTOTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._iMPRESSAO_FECHAMENTOTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
-                        "cadeia de conexão.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager não contém informações de conexão. Defina cada propriedade Ta" +
@@ -1179,15 +1103,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                    revertConnections.Add(this._iMPRESSAO_FECHAMENTOTableAdapter, this._iMPRESSAO_FECHAMENTOTableAdapter.Connection);
-                    this._iMPRESSAO_FECHAMENTOTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
-                    this._iMPRESSAO_FECHAMENTOTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
-                    if (this._iMPRESSAO_FECHAMENTOTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._iMPRESSAO_FECHAMENTOTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._iMPRESSAO_FECHAMENTOTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1245,10 +1160,6 @@ namespace SistemaClientes.FECHAMENTO_IMPRESSAOTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._iMPRESSAO_FECHAMENTOTableAdapter != null)) {
-                    this._iMPRESSAO_FECHAMENTOTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._iMPRESSAO_FECHAMENTOTableAdapter]));
-                    this._iMPRESSAO_FECHAMENTOTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

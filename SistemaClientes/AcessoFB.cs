@@ -5342,10 +5342,11 @@ namespace SistemaClientes
                     string mSQL = "Select * from ITEM_PEDIDO where ID_PEDIDO >= " + listaPedidos[0] + " AND ID_PEDIDO <= " + listaPedidos[listaPedidos.Count - 1] ;
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
-                    Itens_Pedido_Relatorio resultado = new Itens_Pedido_Relatorio();
                     List<Itens_Pedido_Relatorio> retorno = new List<Itens_Pedido_Relatorio>();
+                    int i = 0;
                     while (dr.Read())
                     {
+                        Itens_Pedido_Relatorio resultado = new Itens_Pedido_Relatorio();
                         resultado.Id = Convert.ToInt32(dr[0]);
                         resultado.Id_Pedido = Convert.ToInt32(dr[1]);
                         resultado.Nome = Convert.ToString(dr[2]);
@@ -5649,7 +5650,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select * from COMANDA where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    string mSQL = "select * from COMANDA where (cast(overlay(replace(data, '-', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '-', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     List<Comanda> retorno = new List<Comanda>();
@@ -5765,7 +5766,7 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "select * from ITEM_COMANDA where (cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '/', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
+                    string mSQL = "select * from ITEM_COMANDA where (cast(overlay(replace(data, '-', '.') placing '' from 11 for 50) as date) >= '" + ini + "' AND cast(overlay(replace(data, '-', '.') placing '' from 11 for 50) as date) <= '" + fim + "')";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     List<ItemComanda> retorno = new List<ItemComanda>();
@@ -6915,7 +6916,7 @@ namespace SistemaClientes
                         addTotal = atualizar.Valor.ToString();
                     }
                     conexaoFireBird.Open();
-                    string mSQL = "update LANCAMENTO set VALOR = " + addTotal + ", PAGAMENTO = " + atualizar.Pagamento + ", TIPO = " + atualizar.Pagamento + " where PEDIDO = " + atualizar.Pedido;
+                    string mSQL = "update LANCAMENTO set VALOR = " + addTotal + ", PAGAMENTO = " + atualizar.Pagamento + ", TIPO = " + atualizar.Tipo + " where PEDIDO = " + atualizar.Pedido;
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     cmd.ExecuteNonQuery();
                 }
@@ -7132,10 +7133,11 @@ namespace SistemaClientes
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "Select SENHA, CLIENTE, TOTAL, TAXA from ENTREGA where ENTREGADOR = " + cod + " AND DATA LIKE '" + data + "%'";
+                    string mSQL = "Select SENHA, CLIENTE, TOTAL, TAXA, PAGAMENTO from ENTREGA where ENTREGADOR = " + cod + " AND DATA LIKE '" + data + "%'";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     int senha = 0;
+                    int pagamento = -1;
                     String cliente = "";
                     Decimal valor = 0;
                     Decimal taxa = 0;
@@ -7146,6 +7148,7 @@ namespace SistemaClientes
                         cliente = cliente.Substring(0, 20);
                         valor = Convert.ToDecimal(dr[2]);
                         taxa = Convert.ToDecimal(dr[3]);
+                        pagamento = Convert.ToInt32(dr[4]);
 
                         String addTotal;
                         if (valor.ToString().Contains(","))
@@ -7166,7 +7169,16 @@ namespace SistemaClientes
                         {
                             addTaxa = taxa.ToString();
                         }
-                        string mSQL1 = "insert into IMPRESSAO_FECHAMENTO (SENHA, CLIENTE, TOTAL, TAXA) values (" + senha + ", '" + cliente.Trim() + "', '" + addTotal + "', '" + addTaxa + "')";
+
+                        String tipoPag = "";
+                        if (pagamento == 0)
+                            tipoPag = "DINHEIRO";
+                        if (pagamento == 1)
+                            tipoPag = "CARTAO";
+                        if (pagamento == 2)
+                            tipoPag = "PIX";
+
+                        string mSQL1 = "insert into IMPRESSAO_FECHAMENTO (SENHA, CLIENTE, TOTAL, TAXA, PAGAMENTO) values (" + senha + ", '" + cliente.Trim() + "', '" + addTotal + "', '" + addTaxa + "', '" + tipoPag + "')";
                         FbCommand cmd1 = new FbCommand(mSQL1, conexaoFireBird);
                         cmd1.ExecuteNonQuery();
 

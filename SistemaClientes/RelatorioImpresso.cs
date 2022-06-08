@@ -76,8 +76,14 @@ namespace SistemaClientes
             }
             if (parametro == 3)
             {
-                String inicio = DataInicial;
-                String final = DataFinal;
+                String iniDia = DataInicial.Substring(0, 2);
+                String iniMes = DataInicial.Substring(3, 2);
+                String iniAno = DataInicial.Substring(6, 4);
+                String fimDia = DataInicial.Substring(0, 2);
+                String fimMes = DataInicial.Substring(3, 2);
+                String fimAno = DataInicial.Substring(6, 4);
+                String inicio = iniMes + "/" + iniDia + "/" + iniAno;
+                String final = fimMes + "/" + fimDia + "/" + fimAno; ;
                 String periodo = DataInicial + " até " + DataFinal;
                 dataMostrar = periodo;
                 //INFORMAÇÕES LANÇAMENTOS               
@@ -97,7 +103,7 @@ namespace SistemaClientes
 
             //TOTLANC
             Decimal totalLancamentos = 0;
-            totalLancamentos = listaLancamentos.Where(item => item.Tipo == 2).Sum(x => Convert.ToDecimal(x.Valor));
+            totalLancamentos = listaLancamentos.Where(item => item.Tipo == 3).Sum(x => Convert.ToDecimal(x.Valor));
             String totalLancamentosMostrar = totalLancamentos.ToString("C", CultureInfo.CurrentCulture);
             //TOUTAPPV
             Decimal totalLancamentosOutApps = 0;
@@ -232,14 +238,6 @@ namespace SistemaClientes
             Decimal maior_mesa = 0;
             maior_mesa = listaComanda.Where(item => item.fechamento == 1).Max(t => t.total);
             String maior_mesaMostrar = maior_mesa.ToString("C", CultureInfo.CurrentCulture);
-            //CUR_TOTAL_PROD
-            int total_pedidos = 0;
-            total_pedidos = listaItemPedido.Sum(x => Convert.ToInt32(x.Quantidade));
-            int total_comandas = 0;
-            total_comandas = listaItemComanda.Sum(x => Convert.ToInt32(x.qtd));
-            int total_producao = 0;
-            total_producao = total_pedidos + total_comandas;
-            String total_producaoMostrar = total_producao.ToString();
             //CUR_TOTAL_LANC
             int total_pedidos_lanches = 0;
             total_pedidos_lanches = listaItemPedido.Where(item => item.Grupo == 1).Sum(x => Convert.ToInt32(x.Quantidade));
@@ -280,6 +278,10 @@ namespace SistemaClientes
             int total_porcoes = 0;
             total_porcoes = total_pedidos_porcoes + total_comandas_porcoes;
             String total_porcoesMostrar = total_porcoes.ToString();
+            //CUR_TOTAL_PROD
+            int total_producao = 0;
+            total_producao = total_lanches + total_crepes + total_tapiocas + total_pasteis + total_porcoes;
+            String total_producaoMostrar = total_producao.ToString();
 
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DATA", dataMostrar));
             this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("TATENDIMENTO", totalAtendimentosMostrar));
