@@ -901,6 +901,7 @@
                     <Value>=Trim(Parameters!ORIGEM.Value)</Value>
                     <Style>
                       <FontFamily>Lucida Console</FontFamily>
+                      <FontSize>24pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -911,9 +912,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>DATA</rd:DefaultName>
-            <Top>0.20169cm</Top>
             <Left>4.76892cm</Left>
-            <Height>0.41327cm</Height>
+            <Height>0.79135cm</Height>
             <Width>2.69428cm</Width>
             <ZIndex>16</ZIndex>
             <Style>
