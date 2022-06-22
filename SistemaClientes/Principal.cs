@@ -31,6 +31,7 @@ namespace SistemaClientes
         List<Itens_Pedido_Firebase> listaItensPedido = new List<Itens_Pedido_Firebase>();
         List<Comanda> listaComanda = new List<Comanda>();
         List<ItemComanda> listaItensComanda = new List<ItemComanda>();
+        List<String> listaItensComandaExcluir = new List<String>();
         List<Comanda> listaComandasInseridas = new List<Comanda>();
         List<Entregas> listaEntregas = new List<Entregas>();
         List<Entregas> listaEntregasInseridas = new List<Entregas>();
@@ -191,6 +192,9 @@ namespace SistemaClientes
                 inserir.observacao = RemoverAcentos(item.Value.observacao).Trim().ToUpper();
                 inserir.pagamento = RemoverAcentos(item.Value.pagamento).Trim().ToUpper();
                 inserir.troco = RemoverAcentos(item.Value.troco).Trim().ToUpper();
+
+                if (inserir.observacao.Length > 100)
+                    inserir.observacao = inserir.observacao.Substring(0,100);
 
                 listaPedidos.Add(inserir);
             }
@@ -373,6 +377,7 @@ namespace SistemaClientes
             //RECEBEMOS A LISTA COM TODOS OS PEDIDOS
             listaComanda.Clear();
             listaItensComanda.Clear();
+            //listaItensComandaExcluir.Clear();
             FirebaseResponse response = client_comandas.Get(@"fechado");
             FirebaseResponse response_itens = client_comandas.Get(@"fechado-itens");
             Dictionary<string, Comanda> getComanda = JsonConvert.DeserializeObject<Dictionary<string, Comanda>>(response.Body.ToString());
@@ -436,17 +441,23 @@ namespace SistemaClientes
                         ins.valor = it.Value.valor;
                         ins.qtd = it.Value.qtd;
                         ins.grupo = AcessoFB.fb_verificaGrupoItemComanda(ins.nome);
-
+                        listaItensComandaExcluir.Add(chave_deletar);
                         AcessoFB.fb_adicionaItemComanda(ins);
-                        try{
-                            var delete = client_comandas.Delete(@"fechado-itens/" + chave_deletar);
-                        }
-                        catch{
-                            MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
-                        }
                     }
                 }
-                try{
+                for (int i = 0; i < listaItensComandaExcluir.Count; i++)
+                {
+                    try
+                    {
+                        var delete = client_comandas.Delete(@"fechado-itens/" + listaItensComandaExcluir[i]);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ocorreu um problema ao excluir uma Comanda que foi inserida.\nFale com o Roger.", "Erro");
+                    }
+                }
+                try
+                {
                     String chaveOndeDeletar = item.Value.id;
                     var delete = client_comandas.Delete(@"fechado/" + chaveOndeDeletar);
                 }
@@ -990,6 +1001,9 @@ namespace SistemaClientes
                 inserir.qtd_item = itemPedido.Value.qtd_item;
                 inserir.valor_item = itemPedido.Value.valor_item;
 
+                if (inserir.obs_item.Length > 100)
+                    inserir.obs_item = inserir.obs_item.Substring(0, 100);
+
                 listaRecuperada.Add(inserir);
             }
             return listaRecuperada;
@@ -1081,12 +1095,6 @@ namespace SistemaClientes
                 novaEnt.Id = AcessoFB.fb_verificaUltIdEntrega() + 1;
                 novaEnt.Pedido = inserir.Id;
                 novaEnt.Senha = inserir.Senha;
-                /*if (inserir.Pagamento == 0)
-                    novaEnt.Cliente = "DINHEIRO";
-                if (inserir.Pagamento == 1)
-                    novaEnt.Cliente = "CARTAO";
-                if (inserir.Pagamento == 2)
-                    novaEnt.Cliente = "PIX";*/
                 novaEnt.Cliente = RemoverAcentos(inserir.Nome_Cliente).Trim().ToUpper();
                 novaEnt.Total = inserir.Valor;
                 novaEnt.Data = inserir.Data.Substring(0,10);
